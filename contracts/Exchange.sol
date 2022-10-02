@@ -75,6 +75,7 @@ import "./Token.sol";
     function depositToken(address _token, uint256 _amount) public {
         // Transfer tokens to exchange
         require(Token(_token).transferFrom(msg.sender, address(this), _amount));
+        
 
         // Update user balance
         tokens[_token][msg.sender] = tokens[_token][msg.sender] + _amount;
