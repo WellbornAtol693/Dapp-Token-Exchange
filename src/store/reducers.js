@@ -1,22 +1,22 @@
 export const provider = (state = {}, action) => {
   switch (action.type) {
     case 'PROVIDER_LOADED':
-      return { 
+      return {
         ...state,
         connection: action.connection
       }
     case 'NETWORK_LOADED':
-      return { 
+      return {
         ...state,
         chainId: action.chainId
       }
     case 'ACCOUNT_LOADED':
-      return { 
+      return {
         ...state,
         account: action.account
       }
     case 'ETHER_BALANCE_LOADED':
-      return { 
+      return {
         ...state,
         balance: action.balance
       }
@@ -26,10 +26,10 @@ export const provider = (state = {}, action) => {
   }
 }
 
-const DEFAULT_TOKENS_STATE = { 
-  loaded: false, 
-  contracts: [], 
-  symbols: [] 
+const DEFAULT_TOKENS_STATE = {
+  loaded: false,
+  contracts: [],
+  symbols: []
 }
 
 export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
@@ -38,15 +38,15 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
       return {
         ...state,
         loaded: true,
-        contracts:[...state.contracts, action.token],
-        symbols:[...state.symbols, action.symbol]
+        contracts: [...state.contracts, action.token],
+        symbols: [...state.symbols, action.symbol]
       }
     case 'TOKEN_2_LOADED':
       return {
         ...state,
         loaded: true,
-        contracts:[...state.contracts, action.token],
-        symbols:[...state.symbols, action.symbol]
+        contracts: [...state.contracts, action.token],
+        symbols: [...state.symbols, action.symbol]
       }
 
       default:
@@ -54,13 +54,13 @@ export const tokens = (state = DEFAULT_TOKENS_STATE, action) => {
   }
 }
 
-export const exchange = (state = { loaded: false, contracts: {} }, action) => {
+export const exchange = (state = { loaded: false, contract: {} }, action) => {
   switch (action.type) {
-    case 'EXXCHANGE_LOADED':
+    case 'EXCHANGE_LOADED':
       return {
         ...state,
         loaded: true,
-        contracts: action.token
+        contract: action.exchange
       }
 
       default:
